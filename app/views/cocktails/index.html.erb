@@ -1,5 +1,8 @@
 <h1>Mister Cocktail's Recipes!</h1>
+<p><%= link_to "Add a new cocktail", new_cocktail_path %></p>
 <ul>
-<% Cocktail.all do |cocktail| %>
-<li><%= link_to, cocktail.name,  %></li>
+<% @cocktails.each do |cocktail| %>
+  <li><%= cocktail.name %>
+  <%= link_to " see details", cocktail_path(cocktail) %></li>
+<% end %>
 </ul>
