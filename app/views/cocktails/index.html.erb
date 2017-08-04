@@ -1,8 +1,30 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'banner.jpg'%>);">
+  <div class="banner-content">
+    <h1>Mister Cocktail</h1>
+    <p>The best cocktail recipes wiki on the internet!</p>
+    <%= link_to "Add new", new_cocktail_path, class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+
+<div class="text-center">
 <h1>Mister Cocktail's Recipes!</h1>
 <p><%= link_to "Add a new cocktail", new_cocktail_path %></p>
-<ul>
-<% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name %>
-  <%= link_to " see details", cocktail_path(cocktail) %></li>
-<% end %>
-</ul>
+</div>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="card-category">
+          <% name = cocktail.ingredients.sample.name if cocktail.ingredients.first %>
+          <%= name if cocktail.ingredients%>
+        </div>
+        <div class="card-description">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
