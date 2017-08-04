@@ -1,6 +1,7 @@
+<div class="text-center">
 <h1><%= @cocktail.name %></h1>
 <% if @cocktail.photo? %>
-  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+  <%= cl_image_tag @cocktail.photo.path, width: 300, height: 400, crop: :fill %>
 <% end %>
 <ul>
 <% @cocktail.doses.each do |dose| %>
@@ -20,5 +21,5 @@
 
 <hr>
 <%= link_to "All cocktails", cocktails_path %>
-
+</div>
 
